@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://b9x8y7z6w5v4u"]
+
+[ext_resource type="Script" path="res://demo/mock_project/enemies/enemy_boss.gd" id="1_boss"]
+
+[node name="EnemyBoss" type="CharacterBody2D"]
+script = ExtResource("1_boss")
+
+[node name="BossSprite" type="Sprite2D" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -50.0
+offset_top = -60.0
+offset_right = 50.0
+offset_bottom = -45.0
+value = 100.0

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" format=3 uid="uid://d5f6g7h8j9k0l"]
+
+[resource]
+resource_name = "EnemyBossData"
+metadata/boss_id = "boss_dragon_01"
+metadata/drop_rate = 0.85
+metadata/element = "Fire"

@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3m7p8v2k1n4w"]
+
+[ext_resource type="Script" path="res://addons/smart_bookmarks/ui/quick_search_palette.gd" id="1_pal"]
+
+[node name="QuickSearchPalette" type="Window"]
+title = "Quick Open & Search Bookmarks"
+initial_position = 2
+size = Vector2i(640, 440)
+visible = false
+wrap_controls = true
+transient = true
+exclusive = true
+script = ExtResource("1_pal")
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SearchEdit" type="LineEdit" parent="Margin/VBox"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+placeholder_text = "🔍 Type to search bookmarks, history, or bundles... (Esc to close)"
+clear_button_enabled = true
+
+[node name="TabBar" type="TabBar" parent="Margin/VBox"]
+layout_mode = 2
+tab_count = 4
+tab_0/title = "All (0)"
+tab_1/title = "Bookmarks (0)"
+tab_2/title = "Recent (0)"
+tab_3/title = "Bundles (0)"
+
+[node name="ResultsTree" type="Tree" parent="Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 3
+column_titles_visible = true
+hide_folding = true
+select_mode = 1
+
+[node name="StatusLabel" type="Label" parent="Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.65, 0.7, 1)
+theme_override_font_sizes/font_size = 11
+text = "Press Enter to open, Esc to close"

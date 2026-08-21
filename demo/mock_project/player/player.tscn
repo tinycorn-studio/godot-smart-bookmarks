@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://e1m2n3p4q5r6s"]
+
+[ext_resource type="Script" path="res://demo/mock_project/player/player.gd" id="1_player"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1"]
+radius = 16.0
+height = 48.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

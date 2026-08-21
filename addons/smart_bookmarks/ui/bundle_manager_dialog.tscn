@@ -1,0 +1,185 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6j2y9x5p4a1e"]
+
+[ext_resource type="Script" path="res://addons/smart_bookmarks/ui/bundle_manager_dialog.gd" id="1_dlg"]
+
+[node name="BundleManagerDialog" type="Window"]
+title = "Smart Bookmarks - Manage Feature Bundles"
+initial_position = 2
+size = Vector2i(680, 520)
+visible = false
+wrap_controls = true
+transient = true
+exclusive = true
+script = ExtResource("1_dlg")
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="MainSplit" type="HSplitContainer" parent="Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+split_offset = 200
+
+[node name="LeftPane" type="VBoxContainer" parent="Margin/VBox/MainSplit"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="HeaderLabel" type="Label" parent="Margin/VBox/MainSplit/LeftPane"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Feature Bundles:"
+
+[node name="BundleList" type="ItemList" parent="Margin/VBox/MainSplit/LeftPane"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BundleButtons" type="HBoxContainer" parent="Margin/VBox/MainSplit/LeftPane"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="AddBundleBtn" type="Button" parent="Margin/VBox/MainSplit/LeftPane/BundleButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+ New Bundle"
+
+[node name="DeleteBundleBtn" type="Button" parent="Margin/VBox/MainSplit/LeftPane/BundleButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Delete"
+
+[node name="RightPane" type="VBoxContainer" parent="Margin/VBox/MainSplit"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="DetailVBox" type="VBoxContainer" parent="Margin/VBox/MainSplit/RightPane"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="NameHBox" type="HBoxContainer" parent="Margin/VBox/MainSplit/RightPane/DetailVBox"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="Margin/VBox/MainSplit/RightPane/DetailVBox/NameHBox"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Bundle Name:"
+
+[node name="NameEdit" type="LineEdit" parent="Margin/VBox/MainSplit/RightPane/DetailVBox/NameHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "e.g. Player Feature"
+
+[node name="ColorHBox" type="HBoxContainer" parent="Margin/VBox/MainSplit/RightPane/DetailVBox"]
+layout_mode = 2
+
+[node name="ColorLabel" type="Label" parent="Margin/VBox/MainSplit/RightPane/DetailVBox/ColorHBox"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Color Tag:"
+
+[node name="ColorPicker" type="ColorPickerButton" parent="Margin/VBox/MainSplit/RightPane/DetailVBox/ColorHBox"]
+custom_minimum_size = Vector2(60, 24)
+layout_mode = 2
+color = Color(0.3, 0.65, 0.95, 1)
+edit_alpha = false
+
+[node name="TagsHBox" type="HBoxContainer" parent="Margin/VBox/MainSplit/RightPane/DetailVBox"]
+layout_mode = 2
+
+[node name="TagsLabel" type="Label" parent="Margin/VBox/MainSplit/RightPane/DetailVBox/TagsHBox"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Tags (CSV):"
+
+[node name="TagsEdit" type="LineEdit" parent="Margin/VBox/MainSplit/RightPane/DetailVBox/TagsHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Gameplay, Core, UI"
+
+[node name="ItemsVBox" type="VBoxContainer" parent="Margin/VBox/MainSplit/RightPane"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="ItemsLabel" type="Label" parent="Margin/VBox/MainSplit/RightPane/ItemsVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Bundle Files & Resources:"
+
+[node name="ItemsTree" type="Tree" parent="Margin/VBox/MainSplit/RightPane/ItemsVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 3
+column_titles_visible = true
+
+[node name="ItemActions" type="HBoxContainer" parent="Margin/VBox/MainSplit/RightPane/ItemsVBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="AddFileBtn" type="Button" parent="Margin/VBox/MainSplit/RightPane/ItemsVBox/ItemActions"]
+layout_mode = 2
+text = "+ Add File"
+
+[node name="RemoveFileBtn" type="Button" parent="Margin/VBox/MainSplit/RightPane/ItemsVBox/ItemActions"]
+layout_mode = 2
+text = "- Remove File"
+
+[node name="MoveUpBtn" type="Button" parent="Margin/VBox/MainSplit/RightPane/ItemsVBox/ItemActions"]
+layout_mode = 2
+text = "▲ Move Up"
+
+[node name="MoveDownBtn" type="Button" parent="Margin/VBox/MainSplit/RightPane/ItemsVBox/ItemActions"]
+layout_mode = 2
+text = "▼ Move Down"
+
+[node name="AutoGroupSection" type="PanelContainer" parent="Margin/VBox"]
+layout_mode = 2
+
+[node name="AutoGroupHBox" type="HBoxContainer" parent="Margin/VBox/AutoGroupSection"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="AutoGroupLabel" type="Label" parent="Margin/VBox/AutoGroupSection/AutoGroupHBox"]
+layout_mode = 2
+text = "⚡ Smart Auto-Group Feature:"
+
+[node name="StemEdit" type="LineEdit" parent="Margin/VBox/AutoGroupSection/AutoGroupHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Enter feature name or stem (e.g. 'player', 'enemy_boss', 'inventory')"
+
+[node name="AutoGroupBtn" type="Button" parent="Margin/VBox/AutoGroupSection/AutoGroupHBox"]
+layout_mode = 2
+text = "Auto-Discover & Bundle"
+
+[node name="FooterHBox" type="HBoxContainer" parent="Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ExportJsonBtn" type="Button" parent="Margin/VBox/FooterHBox"]
+layout_mode = 2
+text = "Export Bundles (JSON)"
+
+[node name="ImportJsonBtn" type="Button" parent="Margin/VBox/FooterHBox"]
+layout_mode = 2
+text = "Import Bundles (JSON)"
+
+[node name="Spacer" type="Control" parent="Margin/VBox/FooterHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SaveCloseBtn" type="Button" parent="Margin/VBox/FooterHBox"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Save & Close"

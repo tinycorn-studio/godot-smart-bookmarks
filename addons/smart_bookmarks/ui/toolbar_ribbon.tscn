@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8v3w2x9q1m5n"]
+
+[ext_resource type="Script" path="res://addons/smart_bookmarks/ui/toolbar_ribbon.gd" id="1_ribbon"]
+[ext_resource type="Texture2D" path="res://addons/smart_bookmarks/icons/pin_icon.svg" id="2_pin"]
+[ext_resource type="Texture2D" path="res://addons/smart_bookmarks/icons/toggle_scene_script.svg" id="3_toggle"]
+[ext_resource type="Texture2D" path="res://addons/smart_bookmarks/icons/history_icon.svg" id="4_history"]
+[ext_resource type="Texture2D" path="res://addons/smart_bookmarks/icons/search_icon.svg" id="5_search"]
+[ext_resource type="Texture2D" path="res://addons/smart_bookmarks/icons/bundle_icon.svg" id="6_bundle"]
+
+[node name="ToolbarRibbon" type="HBoxContainer"]
+custom_minimum_size = Vector2(400, 28)
+offset_right = 720.0
+offset_bottom = 30.0
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+script = ExtResource("1_ribbon")
+
+[node name="BundleSelector" type="OptionButton" parent="."]
+custom_minimum_size = Vector2(130, 24)
+layout_mode = 2
+tooltip_text = "Select active feature bundle"
+focus_mode = 0
+
+[node name="PinCurrentBtn" type="Button" parent="."]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+tooltip_text = "Pin currently active file to this bundle"
+focus_mode = 0
+icon = ExtResource("2_pin")
+flat = true
+expand_icon = true
+
+[node name="Sep1" type="VSeparator" parent="."]
+layout_mode = 2
+
+[node name="TabsScroll" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(180, 26)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+horizontal_scroll_mode = 1
+vertical_scroll_mode = 3
+
+[node name="TabsContainer" type="HBoxContainer" parent="TabsScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="Sep2" type="VSeparator" parent="."]
+layout_mode = 2
+
+[node name="ToggleBtn" type="Button" parent="."]
+custom_minimum_size = Vector2(26, 24)
+layout_mode = 2
+tooltip_text = "Fast Scene <-> Script Switcher (Alt + S)"
+focus_mode = 0
+text = "Alt+S"
+icon = ExtResource("3_toggle")
+flat = true
+expand_icon = true
+
+[node name="RecentMenuBtn" type="MenuButton" parent="."]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+tooltip_text = "Recent File Access History"
+focus_mode = 0
+icon = ExtResource("4_history")
+flat = true
+expand_icon = true
+
+[node name="SearchBtn" type="Button" parent="."]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+tooltip_text = "Quick Search Bookmarks & Files (Alt + B)"
+focus_mode = 0
+icon = ExtResource("5_search")
+flat = true
+expand_icon = true
+
+[node name="ManageBtn" type="Button" parent="."]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+tooltip_text = "Manage Feature Bundles & Smart Auto-Grouping"
+focus_mode = 0
+icon = ExtResource("6_bundle")
+flat = true
+expand_icon = true

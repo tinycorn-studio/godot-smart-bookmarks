@@ -1,0 +1,200 @@
+[gd_scene load_steps=2 format=3 uid="uid://f4g5h6j7k8l9m"]
+
+[ext_resource type="Script" path="res://demo/demo.gd" id="1_demo"]
+
+[node name="DemoSmartBookmarks" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_demo")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12, 0.13, 0.16, 1)
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+
+[node name="HeaderPanel" type="PanelContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="HeaderHBox" type="HBoxContainer" parent="VBox/HeaderPanel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="VBox/HeaderPanel/HeaderHBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "  ⚡ Smart Bookmarks & Quick File Switcher — Showcase"
+
+[node name="SubtitleLabel" type="Label" parent="VBox/HeaderPanel/HeaderHBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.65, 0.75, 1)
+theme_override_font_sizes/font_size = 12
+text = "Interactive Standalone Testbed (Godot 4.x)"
+
+[node name="RibbonHost" type="MarginContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 2
+
+[node name="MainSplit" type="HSplitContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+split_offset = 240
+
+[node name="LeftPane" type="VBoxContainer" parent="VBox/MainSplit"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="FileTreeHeader" type="Label" parent="VBox/MainSplit/LeftPane"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "📁 Project FileSystem (Double-click to open):"
+
+[node name="FileTree" type="Tree" parent="VBox/MainSplit/LeftPane"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterPane" type="VBoxContainer" parent="VBox/MainSplit"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="WorkspaceHeader" type="HBoxContainer" parent="VBox/MainSplit/CenterPane"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ActiveFileLabel" type="Label" parent="VBox/MainSplit/CenterPane/WorkspaceHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 13
+text = "res://demo/mock_project/player/player.tscn"
+
+[node name="ModeBadge" type="Label" parent="VBox/MainSplit/CenterPane/WorkspaceHeader"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "MODE: SCENE VIEW"
+
+[node name="ActionHBox" type="HBoxContainer" parent="VBox/MainSplit/CenterPane"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ToggleBtn" type="Button" parent="VBox/MainSplit/CenterPane/ActionHBox"]
+layout_mode = 2
+text = "🔄 Fast Scene <-> Script Toggle (Alt + S)"
+
+[node name="SearchBtn" type="Button" parent="VBox/MainSplit/CenterPane/ActionHBox"]
+layout_mode = 2
+text = "🔍 Quick Search (Alt + B)"
+
+[node name="PinBtn" type="Button" parent="VBox/MainSplit/CenterPane/ActionHBox"]
+layout_mode = 2
+text = "⭐ Pin to Active Bundle"
+
+[node name="PreviewContainer" type="PanelContainer" parent="VBox/MainSplit/CenterPane"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CodePreview" type="CodeEdit" parent="VBox/MainSplit/CenterPane/PreviewContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+text = "# Script content preview"
+editable = false
+
+[node name="ScenePreviewPanel" type="PanelContainer" parent="VBox/MainSplit/CenterPane/PreviewContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="VBox/MainSplit/CenterPane/PreviewContainer/ScenePreviewPanel"]
+layout_mode = 2
+
+[node name="SceneTreeLabel" type="Label" parent="VBox/MainSplit/CenterPane/PreviewContainer/ScenePreviewPanel/VBox"]
+layout_mode = 2
+text = "Scene Hierarchy Viewport:"
+
+[node name="SceneNodesTree" type="Tree" parent="VBox/MainSplit/CenterPane/PreviewContainer/ScenePreviewPanel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RightPane" type="VBoxContainer" parent="VBox/MainSplit"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ConfigSection" type="VBoxContainer" parent="VBox/MainSplit/RightPane"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="ConfigLabel" type="Label" parent="VBox/MainSplit/RightPane/ConfigSection"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "💾 Live Persistence (smart_bookmarks.cfg):"
+
+[node name="ConfigTextView" type="TextEdit" parent="VBox/MainSplit/RightPane/ConfigSection"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 11
+editable = false
+
+[node name="HistorySection" type="VBoxContainer" parent="VBox/MainSplit/RightPane"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="HistoryLabel" type="Label" parent="VBox/MainSplit/RightPane/HistorySection"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "🕒 Recent File History (LRU):"
+
+[node name="HistoryItemList" type="ItemList" parent="VBox/MainSplit/RightPane/HistorySection"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LogSection" type="VBoxContainer" parent="VBox/MainSplit/RightPane"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="LogLabel" type="Label" parent="VBox/MainSplit/RightPane/LogSection"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "📝 Event Log:"
+
+[node name="EventLog" type="RichTextLabel" parent="VBox/MainSplit/RightPane/LogSection"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 11
+scroll_following = true
+
+[node name="TestSection" type="HBoxContainer" parent="VBox/MainSplit/RightPane"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="RunTestsBtn" type="Button" parent="VBox/MainSplit/RightPane/TestSection"]
+layout_mode = 2
+text = "🧪 Run Self-Tests"
+
+[node name="TestResultsLabel" type="Label" parent="VBox/MainSplit/RightPane/TestSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Tests: Ready"

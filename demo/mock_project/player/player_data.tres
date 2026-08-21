@@ -1,0 +1,7 @@
+[gd_resource type="Resource" format=3 uid="uid://c7r8s9t0u1v2w"]
+
+[resource]
+resource_name = "PlayerData"
+metadata/max_health = 100
+metadata/base_damage = 25
+metadata/class_type = "Warrior"

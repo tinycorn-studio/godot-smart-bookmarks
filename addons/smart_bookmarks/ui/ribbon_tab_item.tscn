@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8x0k6m1l2a3b"]
+
+[ext_resource type="Script" path="res://addons/smart_bookmarks/ui/ribbon_tab_item.gd" id="1_tab"]
+[ext_resource type="Texture2D" path="res://addons/smart_bookmarks/icons/file_generic.svg" id="2_icon"]
+
+[node name="RibbonTabItem" type="PanelContainer"]
+custom_minimum_size = Vector2(80, 26)
+offset_right = 110.0
+offset_bottom = 26.0
+mouse_filter = 0
+script = ExtResource("1_tab")
+
+[node name="ColorTagBar" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+size_flags_vertical = 8
+mouse_filter = 2
+color = Color(0.3, 0.65, 0.95, 1)
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="IconRect" type="TextureRect" parent="HBox"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("2_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TitleLabel" type="Label" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "player.tscn"
+text_overrun_behavior = 3
+
+[node name="CloseButton" type="Button" parent="HBox"]
+modulate = Color(1, 1, 1, 0.35)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Unpin from Bundle"
+focus_mode = 0
+flat = true
+text = "×"
+
+[node name="ContextMenu" type="PopupMenu" parent="."]
+size = Vector2i(160, 180)
